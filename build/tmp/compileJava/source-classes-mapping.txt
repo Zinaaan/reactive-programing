@@ -1,9 +1,9 @@
+metrics/GcMetricController.java
+ metrics.GcMetricController
+metrics/JvmIndicator.java
+ metrics.JvmIndicator
+metrics/MetricsManager.java
+ metrics.MetricsManager
 examples/Example.java
  examples.Example
  examples.Example$1
-metrics/JvmIndicator.java
- metrics.JvmIndicator
-metrics/GcMetricController.java
- metrics.GcMetricController
-metrics/MetricsManager.java
- metrics.MetricsManager
