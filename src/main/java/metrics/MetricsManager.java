@@ -47,15 +47,15 @@ public class MetricsManager {
         return gcRegistry;
     }
 
-    public Mono<Double> getGcMetric(String name, String tag1, String area, String tag2, String type) {
-        return Mono.just(gcRegistry.get(name).tags(tag1, area, tag2, type).gauge().value());
+    public double getGcMetric(JvmIndicator indicator) {
+        return gcRegistry.get(indicator.getName()).tags(indicator.getTag1(), indicator.getArea(), indicator.getTag2(), indicator.getId()).gauge().value();
     }
 
-    public Mono<Double> getMemoryMetric(String name, String tag1, String area, String tag2, String type) {
-        return Mono.just(memoryRegistry.get(name).tags(tag1, area, tag2, type).gauge().value());
+    public double getMemoryMetric(JvmIndicator indicator) {
+        return memoryRegistry.get(indicator.getName()).tags(indicator.getTag1(), indicator.getArea(), indicator.getTag2(), indicator.getId()).gauge().value();
     }
 
-    public Mono<Collection<Meter>> getMemoryMetrics(String name, String tag1, String area) {
-        return Mono.just(memoryRegistry.get(name).tag(tag1, area).meters());
+    public Collection<Meter> getMemoryMetrics(JvmIndicator indicator) {
+        return memoryRegistry.get(indicator.getName()).tag(indicator.getTag1(), indicator.getArea()).meters();
     }
 }
